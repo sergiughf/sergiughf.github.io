@@ -5,21 +5,15 @@
     <link>https://sergiu.dev/</link>
     <description>Recent content on sergiu.dev</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>Sergiu Ghitea © 2019 Powered by &lt;a href=&#34;https://gohugo.io&#34;&gt; Hugo&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 10 Nov 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://sergiu.dev/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language>
+    <copyright>Sergiu Ghitea © 2019 Powered by &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;</copyright>
+    <atom:link href="https://sergiu.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About me</title>
       <link>https://sergiu.dev/</link>
       <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://sergiu.dev/</guid>
-      <description>Hi there! I&amp;rsquo;m Sergiu I&amp;rsquo;m a Software Engineer 💻 by day, carbonara 🍝 chef by evenings and bike 🚲 enthusiast by weekends.</description>
+      <description>Hi there! I&amp;rsquo;m Sergiu I&amp;rsquo;m a Software Engineer &amp;#x1f4bb; by day, carbonara &amp;#x1f35d; chef by evenings and bike &amp;#x1f6b2; enthusiast by weekends.</description>
     </item>
-    
   </channel>
 </rss>
