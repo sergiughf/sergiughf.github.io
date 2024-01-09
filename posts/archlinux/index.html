@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Unlocking the Power of Linux: A Complete Guide to Installing Arch with Full Disk Encryption :: sergiu.dev</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This guide isn&amp;rsquo;t just a tech manual; it&amp;rsquo;s a roller coaster ride through the exhilarating world of Arch Linux. Imagine combining the thrill of skydiving with the satisfaction of solving a Rubik&amp;rsquo;s cube - that&amp;rsquo;s what installing Arch with full disk encryption is like, and I&amp;rsquo;m here to show you how.
+As we navigate the labyrinth of Linux installation, we&amp;rsquo;ll transform a potentially mundane process into an epic digital odyssey. Whether you&amp;rsquo;re a Linux rookie eager to learn or a seasoned pro, this guide is your ticket to a secure, lightning-fast system." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://sergiu.dev/posts/archlinux/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://sergiu.dev/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://sergiu.dev/img/theme-colors/red.png">
+  <link rel="apple-touch-icon" href="https://sergiu.dev/img/theme-colors/red.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Unlocking the Power of Linux: A Complete Guide to Installing Arch with Full Disk Encryption">
+<meta property="og:description" content="This guide isn&amp;rsquo;t just a tech manual; it&amp;rsquo;s a roller coaster ride through the exhilarating world of Arch Linux. Imagine combining the thrill of skydiving with the satisfaction of solving a Rubik&amp;rsquo;s cube - that&amp;rsquo;s what installing Arch with full disk encryption is like, and I&amp;rsquo;m here to show you how.
+As we navigate the labyrinth of Linux installation, we&amp;rsquo;ll transform a potentially mundane process into an epic digital odyssey. Whether you&amp;rsquo;re a Linux rookie eager to learn or a seasoned pro, this guide is your ticket to a secure, lightning-fast system." />
+<meta property="og:url" content="https://sergiu.dev/posts/archlinux/" />
+<meta property="og:site_name" content="sergiu.dev" />
+
+  
+  
+  <meta property="og:image" content="https://sergiu.dev/images/arch-linux2.jpg">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2024-01-09 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="red">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Sergiu Ghitea
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/aboutme">About Me</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/aboutme" >About Me</a></li>
+        
+      
+        
+          <li><a href="/posts" >Posts</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://sergiu.dev/posts/archlinux/">Unlocking the Power of Linux: A Complete Guide to Installing Arch with Full Disk Encryption</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2024-01-09</time><span class="post-reading-time">7 min read (1413 words)</span></div>
+
+  
+  
+  <img src="https://sergiu.dev/images/arch-linux2.jpg"
+    class="post-cover"
+    alt="Unlocking the Power of Linux: A Complete Guide to Installing Arch with Full Disk Encryption"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <p>This guide isn&rsquo;t just a tech manual; it&rsquo;s a roller coaster ride through the exhilarating world of Arch Linux. Imagine
+combining the thrill of skydiving with the satisfaction of solving a Rubik&rsquo;s cube - that&rsquo;s what installing Arch with
+full disk encryption is like, and I&rsquo;m here to show you how.</p>
+<p>As we navigate the labyrinth of Linux installation, we&rsquo;ll transform a potentially mundane process into an epic digital
+odyssey. Whether you&rsquo;re a Linux rookie eager to learn or a seasoned pro, this guide is your ticket to a secure,
+lightning-fast system.</p>
+<p>I&rsquo;ve been an Arch Linux devotee for years and wouldn&rsquo;t dream of going back. It&rsquo;s a realm of unmatched power and
+flexibility.</p>
+<p>Let&rsquo;s get going!</p>
+<hr>
+<h2 id="table-of-contents">Table of Contents<a href="#table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#connect-to-the-internet">Connect to the Internet</a></li>
+<li><a href="#set-up-the-disk">Set up the Disk</a>
+<ul>
+<li><a href="#partition-the-disk">Partition the Disk</a></li>
+<li><a href="#encrypt-the-disk">Encrypt the Disk</a></li>
+<li><a href="#create-dynamic-partitions">Create Dynamic Partitions</a></li>
+<li><a href="#mount-the-volumes">Mount the Volumes</a></li>
+</ul>
+</li>
+<li><a href="#install-arch-linux">Install Arch Linux</a></li>
+<li><a href="#install-a-boot-manager">Install a Boot Manager</a></li>
+<li><a href="#the-moment-of-truth">The Moment of Truth</a></li>
+<li><a href="#post-install-tweaks">Post-Install Tweaks</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a href="#prerequisites" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li>Arch Linux ISO on a bootable USB flash drive.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>Comfortable with a root shell? Hope so, because that&rsquo;s where the magic happens.</li>
+</ul>
+<hr>
+<h2 id="connect-to-the-internet">Connect to the Internet<a href="#connect-to-the-internet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Alright, internet warriors, let&rsquo;s get you connected!</p>
+<p>If you&rsquo;re plugged in via ethernet, let&rsquo;s do a quick check to see if your machine is already chatting with the internet.</p>
+<p>Pop open your terminal and type:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ip addr show <span style="color:#75715e"># You should see an ip address assigned to the ethernet adapter.</span>
+</span></span><span style="display:flex;"><span>ping google.com <span style="color:#75715e"># Do a quick reality check to confirm your connection.</span>
+</span></span></code></pre></div><p>If you&rsquo;re a Wi-Fi wizard, brace yourself for a mini-adventure.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>iwctl <span style="color:#75715e"># Summoning the Internet Wireless Daemon (IWD) within your shell.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> device list <span style="color:#75715e"># Let&#39;s see if your wireless adapter is ready for action.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station wlan0 scan <span style="color:#75715e"># Command your wifi card to scan the surroundings.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station wlan0 get-networks <span style="color:#75715e"># Unveil the list of available networks.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>iwd<span style="color:#f92672">]</span> station wlan0 connect <span style="color:#e6db74">&#34;&lt;Wireless-Network&gt;&#34;</span> <span style="color:#75715e"># Time to connect! It&#39;ll ask for the network&#39;s secret passphrase.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Hold your horses for a few seconds, then gracefully exit IWD with CTRL+D.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ip addr show <span style="color:#75715e"># Behold! An IP address for your wireless interface should now appear.</span>
+</span></span><span style="display:flex;"><span>ping google.com <span style="color:#75715e"># Do a quick reality check to confirm your connection.</span>
+</span></span></code></pre></div><p>With our internet powers activated, let&rsquo;s give the Arch Package Repository index a fresh update.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -Syyy
+</span></span></code></pre></div><p>Feeling a bit sluggish? Maybe your digital carrier pigeons are flying to a far-off land.</p>
+<p>Edit <code>/etc/pacman.d/mirrorlist</code> and put your country at the top.</p>
+<p>This is like telling those pigeons to make a pit stop closer to home.</p>
+<p>Faster updates, happier you!</p>
+<hr>
+<h2 id="set-up-the-disk">Set up the Disk<a href="#set-up-the-disk" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Alright, fellow tech adventurers, it&rsquo;s time to play wizard with your disk.</p>
+<p>First things first, ensure UEFI is not just enabled in the BIOS, but is ready to party.</p>
+<h3 id="partition-the-disk">Partition the Disk<a href="#partition-the-disk" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Ready for some disk partitioning magic? Here&rsquo;s a spell for you, but feel free to freestyle your own enchantments.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>fdisk -l <span style="color:#75715e"># Peek at the name of your soon-to-be enchanted disk.</span>
+</span></span><span style="display:flex;"><span>fdisk /dev/nvme0n1 <span style="color:#75715e"># That&#39;s my disk&#39;s name; yours might be different.</span>
+</span></span><span style="display:flex;"><span>Command <span style="color:#f92672">(</span>m <span style="color:#66d9ef">for</span> help<span style="color:#f92672">)</span>: p <span style="color:#75715e"># Unveil your current partition lineup.</span>
+</span></span><span style="display:flex;"><span>Command <span style="color:#f92672">(</span>m <span style="color:#66d9ef">for</span> help<span style="color:#f92672">)</span>: g <span style="color:#75715e"># I&#39;m crafting a shiny new GPT layout. Warning: This erases old partitions!</span>
+</span></span><span style="display:flex;"><span>Command <span style="color:#f92672">(</span>m <span style="color:#66d9ef">for</span> help<span style="color:#f92672">)</span>: n <span style="color:#75715e"># Time to conjure a new partition.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create 1 partition of type EFI (1) of size 1G.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create 1 partition Linux Filesystem of size 1G.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create 1 partition with the remaining space that will be type 30 Linux LVM.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Command <span style="color:#f92672">(</span>m <span style="color:#66d9ef">for</span> help<span style="color:#f92672">)</span>: w <span style="color:#75715e"># Seal the deal on your partition masterpiece.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fdisk -l <span style="color:#75715e"># Quick reality check to ensure your disk is ready for its new destiny.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Now, let&#39;s give these partitions some personality by formatting them.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkfs.fat -F32 /dev/nvme0n1p1 <span style="color:#75715e"># Set up a FAT32 partition.</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/nvme0n1p2 <span style="color:#75715e"># Format the second partition as ext4.</span>
+</span></span></code></pre></div><h3 id="encrypt-the-disk">Encrypt the Disk<a href="#encrypt-the-disk" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Now, let&rsquo;s start the encryption process.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cryptsetup luksFormat /dev/nvme0n1p3 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Enter passphrase, you will get this prompted when you boot the system. </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You do not want to forget this, as you can&#39;t un-encrypt your hard drive without it.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cryptsetup open --type luks /dev/nvme0n1p3 lvm <span style="color:#75715e"># Unlock the partition so we can work with it.</span>
+</span></span></code></pre></div><h3 id="create-dynamic-partitions">Create Dynamic Partitions<a href="#create-dynamic-partitions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Behold the creation of a new Logical Volume Manager (LVM) realm inside the encrypted land:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Lay the foundation for our LVM kingdom.</span>
+</span></span><span style="display:flex;"><span>pvcreate --dataalignment 1m /dev/mapper/lvm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Summon a volume group, a mighty container of logical volumes.</span>
+</span></span><span style="display:flex;"><span>vgcreate volgroup0 /dev/mapper/lvm
+</span></span><span style="display:flex;"><span>lvcreate -L 150G volgroup0 -n lv_root <span style="color:#75715e"># Assign as much space as you please.</span>
+</span></span><span style="display:flex;"><span>lvcreate -l 100%FREE volgroup0 -n lv_home
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Awaken our LVM setup.</span>
+</span></span><span style="display:flex;"><span>modprobe dm_mod
+</span></span><span style="display:flex;"><span>vgscan
+</span></span><span style="display:flex;"><span>vgchange -ay 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Time to format the created logical volumes.</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/volgroup0/lv_root
+</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/volgroup0/lv_home
+</span></span></code></pre></div><h3 id="mount-the-volumes">Mount the Volumes<a href="#mount-the-volumes" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Mounting time! Let’s give these volumes a home:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mount /dev/volgroup0/lv_root /mnt 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir /mnt/home
+</span></span><span style="display:flex;"><span>mount /dev/volgroup0/lv_home /mnt/home
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir /mnt/boot
+</span></span><span style="display:flex;"><span>mount /dev/nvme0n1p2 /mnt/boot
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Time to generate the fstab file that is required for a successful boot.</span>
+</span></span><span style="display:flex;"><span>mkdir /mnt/etc
+</span></span><span style="display:flex;"><span>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Peek at the fstab to ensure it’s telling the right tale.</span>
+</span></span><span style="display:flex;"><span>cat /mnt/etc/fstab
+</span></span></code></pre></div><p>And just like that, you&rsquo;ve turned your disk into a realm of encrypted wonders and dynamic partitions! 🧙‍♂️✨</p>
+<hr>
+<h2 id="install-arch-linux">Install Arch Linux<a href="#install-arch-linux" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Great job on prepping your disk! It&rsquo;s like you&rsquo;ve laid the foundation for a digital castle.</p>
+<p>Now, let&rsquo;s build it up with Arch Linux. Ready? Let&rsquo;s roll!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacstrap -i /mnt base <span style="color:#75715e"># Install all base packages for Arch Linux.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>arch-chroot /mnt <span style="color:#75715e"># Dive into your work-in-progress installation. It&#39;s configuration time!</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S linux linux-lts linux-headers linux-lts-headers <span style="color:#75715e"># Grabbing the Linux Kernels. Why settle for one when you can have both LTS and the latest, switchable at boot for those just-in-case moments?</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S vim <span style="color:#75715e"># You need a trusty editor to tweak files. Vim&#39;s my sidekick, but pick your own hero.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S base-devel openssh networkmanager wpa_supplicant wireless_tool netctl dialog <span style="color:#75715e"># Some packages to facilitate networking.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>systemctl enable NetworkManager <span style="color:#75715e"># Like teaching your network manager to wake up on its own.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pacman -S lvm2 <span style="color:#75715e"># Essential for booting up your encrypted drive.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Now, let&#39;s make sure your boot process is in tune with your setup.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim /etc/mkinitcpio.conf <span style="color:#75715e"># Sneak in &#39;encrypt lvm2&#39; between block and filesystems in the hooks.</span>
+</span></span><span style="display:flex;"><span>mkinitcpio -p linux
+</span></span><span style="display:flex;"><span>mkinitcpio -p linux-lts
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim /etc/locale.gen <span style="color:#75715e"># Find your locale and uncomment.</span>
+</span></span><span style="display:flex;"><span>locale-gen
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>passwd <span style="color:#75715e"># Time to set a secret code for root access. Choose wisely!</span>
+</span></span><span style="display:flex;"><span>useradd -m -g users -G wheel sergiu <span style="color:#75715e"># Creating your digital alter-ego. Swap &#39;sergiu&#39; with your chosen name.</span>
+</span></span><span style="display:flex;"><span>passwd sergiu <span style="color:#75715e"># Don&#39;t forget to password-protect your alter-ego.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>EDITOR<span style="color:#f92672">=</span>vim visudo <span style="color:#75715e"># Unleash the power of the wheel group by uncommenting %wheel ALL=(ALL) ALL</span>
+</span></span></code></pre></div><p>And just like that, you&rsquo;re architecting a robust, personalized system.</p>
+<p>Think of it as building your own digital fortress, brick by brick, command by command. 🏗️🐧✨</p>
+<h2 id="install-a-boot-manager">Install a Boot Manager<a href="#install-a-boot-manager" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The goal now is to make our installation standalone so that when we reboot our computer we want everything to boot up
+automatically and to do that we will install GRUB, but feel free to skip over this section if you want to install a
+different boot manager.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -S grub efibootmgr dosfstools os-prober mtools <span style="color:#75715e"># Install grub and related packages.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mkdir /boot/EFI
+</span></span><span style="display:flex;"><span>mount /dev/nvme0n1p1 /boot/EFI <span style="color:#75715e"># Swap in your partition&#39;s name here.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>grub-install --target<span style="color:#f92672">=</span>x86_64-efi --bootloader-id<span style="color:#f92672">=</span>grub_uefi --recheck <span style="color:#75715e"># Commanding GRUB to take its throne.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cp /usr/share/locale/en<span style="color:#ae81ff">\@</span>quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo <span style="color:#75715e"># Ensure /boot/grub/locale exists and select a different language if desired.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim /etc/default/grub <span style="color:#75715e"># Uncomment GRUB_ENABLE_CRYPTODISK=y and then add to GRUB_CMDLINE_LINUX_DEFAULT in between the options cryptdevice=/dev/nvme0n1p3:volgroup0:allow-discards paying attention to your device name.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>grub-mkconfig -o /boot/grub/grub.cfg <span style="color:#75715e"># Generate the grub configuration file.</span>
+</span></span></code></pre></div><h2 id="the-moment-of-truth">The Moment of Truth<a href="#the-moment-of-truth" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>It&rsquo;s time for the grand test: Can your Arch rise like a phoenix?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>exit 
+</span></span><span style="display:flex;"><span>umount -a 
+</span></span><span style="display:flex;"><span>reboot
+</span></span></code></pre></div><h2 id="post-install-tweaks">Post-Install Tweaks<a href="#post-install-tweaks" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Your installation is a success, and your machine is up and running.</p>
+<p>Let&rsquo;s sprinkle some extra magic for an even better Linux experience.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># Swap memory time! It&#39;s like giving your computer a memory cushion.</span>
+</span></span><span style="display:flex;"><span>fallocate -l 16G /swapfile
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> /swapfile
+</span></span><span style="display:flex;"><span>mkswap /swapfile
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;/swapfile none swap sw 0 0&#39;</span> | tee -a /etc/fstab
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Naming your digital beast. I chose &#39;my-computer&#39;, but you can be more creative.</span>
+</span></span><span style="display:flex;"><span>hostnamectl set-hostname my-computer
+</span></span><span style="display:flex;"><span>vim /etc/hosts <span style="color:#75715e"># Add 127.0.0.1 localhost and 127.0.0.1 my-computer lines.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Feeling graphical? Let&#39;s install a GUI. Here&#39;s one for Gnome fans.</span>
+</span></span><span style="display:flex;"><span>sudo pacman -Syyy <span style="color:#f92672">&amp;&amp;</span> sudo pacman -S gnome gnome-extra
+</span></span><span style="display:flex;"><span>sudo systemctl enable gdm
+</span></span></code></pre></div><p>And there you have it, a fully functional, customized Arch Linux system, ready to tackle whatever digital dragons you encounter. 🐲💻✨</p>
+<hr>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>If you don&rsquo;t know where to start, look <a href="https://wiki.archlinux.org/title/Installation_guide#Acquire_an_installation_image">here</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+      </div></div>
+
+  
+    
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+        repo="sergiught/sergiught.github.io"
+        issue-term="pathname"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright copyright--user">
+        <span>Sergiu Ghitea © 2024 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

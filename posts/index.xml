@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sergiu.dev</title>
-    <link>https://sergiu.dev/</link>
-    <description>Recent content on sergiu.dev</description>
+    <title>Posts on sergiu.dev</title>
+    <link>https://sergiu.dev/posts/</link>
+    <description>Recent content in Posts on sergiu.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Sergiu Ghitea © 2024 Powered by &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://sergiu.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://sergiu.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unlocking the Power of Linux: A Complete Guide to Installing Arch with Full Disk Encryption</title>
       <link>https://sergiu.dev/posts/archlinux/</link>
@@ -221,31 +221,6 @@ different boot manager.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://sergiu.dev/aboutme/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://sergiu.dev/aboutme/</guid>
-      <description>&amp;#x1f44b; Hi there! I&amp;rsquo;m Sergiu. I am a senior software engineer currently living in Spain 🇪🇸, with a passion for Go, DevOps, Terraform and Security. I like to think of myself as the Swiss Army Knife of software engineering - I may not be the best at everything, but I&amp;rsquo;m pretty darn good at a lot of things. And when it comes to developer experience, I am all about making life easier for my fellow engineers 👷.</description>
-      <content>
-&lt;img src=&#34;https://sergiu.dev/images/avatar.jpg&#34;  alt=&#34;avatar&#34;  class=&#34;center&#34;  style=&#34; width: 50%; height: 50%&#34;    /&gt;
-
-
-&lt;h1 id=&#34;wave-hi-there-im-sergiu&#34;&gt;&amp;#x1f44b; Hi there! I&amp;rsquo;m Sergiu.&lt;/h1&gt;
-&lt;p&gt;I am a senior software engineer currently living in Spain 🇪🇸, with a passion for Go, DevOps, Terraform and Security.
-I like to think of myself as the Swiss Army Knife of software engineering - I may not be the best at everything, but I&amp;rsquo;m
-pretty darn good at a lot of things. And when it comes to developer experience, I am all about making life easier for my
-fellow engineers 👷. I am always up for a challenge 🚵 and am always looking for ways to improve myself 🌱 and the
-projects I work on.&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;Find my code on &lt;a href=&#34;https://github.com/sergiught&#34;&gt;github.com/sergiught&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Contact me: &lt;strong&gt;mail [at] sergiu [dot] dev&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
     </item>
     
