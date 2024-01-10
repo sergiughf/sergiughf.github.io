@@ -53,7 +53,7 @@ flexibility.&lt;/p&gt;
 &lt;p&gt;Alright, internet warriors, let&amp;rsquo;s get you connected!&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re plugged in via ethernet, let&amp;rsquo;s do a quick check to see if your machine is already chatting with the internet.&lt;/p&gt;
 &lt;p&gt;Pop open your terminal and type:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip addr show &lt;span style=&#34;color:#75715e&#34;&gt;# You should see an ip address assigned to the ethernet adapter.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip addr show &lt;span style=&#34;color:#75715e&#34;&gt;# You should see an RFC1918 compliant IP address assigned to the ethernet adapter.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ping google.com &lt;span style=&#34;color:#75715e&#34;&gt;# Do a quick reality check to confirm your connection.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you&amp;rsquo;re a Wi-Fi wizard, brace yourself for a mini-adventure.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iwctl &lt;span style=&#34;color:#75715e&#34;&gt;# Summoning the Internet Wireless Daemon (IWD) within your shell.&lt;/span&gt;
@@ -70,8 +70,10 @@ flexibility.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With our internet powers activated, let&amp;rsquo;s give the Arch Package Repository index a fresh update.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacman -Syyy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Feeling a bit sluggish? Maybe your digital carrier pigeons are flying to a far-off land.&lt;/p&gt;
-&lt;p&gt;Edit &lt;code&gt;/etc/pacman.d/mirrorlist&lt;/code&gt; and put your country at the top.&lt;/p&gt;
-&lt;p&gt;This is like telling those pigeons to make a pit stop closer to home.&lt;/p&gt;
+&lt;p&gt;Install Reflector and retrieve the latest mirror list:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacman -S reflector rsync curl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reflector --latest &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt; --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is like telling those pigeons to make a pit stop closer to home.&lt;/p&gt;
 &lt;p&gt;Faster updates, happier you!&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;set-up-the-disk&#34;&gt;Set up the Disk&lt;/h2&gt;
@@ -96,7 +98,7 @@ flexibility.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Now, let&amp;#39;s give these partitions some personality by formatting them.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.fat -F32 /dev/nvme0n1p1 &lt;span style=&#34;color:#75715e&#34;&gt;# Set up a FAT32 partition.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.ext4 /dev/nvme0n1p2 &lt;span style=&#34;color:#75715e&#34;&gt;# Format the second partition as ext4.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.ext4 /dev/nvme0n1p2 &lt;span style=&#34;color:#75715e&#34;&gt;# Format the second partition as EXT4. Alternatively you could also consider BTRFS, ZFS or XFS file systems depending on your use case.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;encrypt-the-disk&#34;&gt;Encrypt the Disk&lt;/h3&gt;
 &lt;p&gt;Now, let&amp;rsquo;s start the encryption process.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cryptsetup luksFormat /dev/nvme0n1p3 

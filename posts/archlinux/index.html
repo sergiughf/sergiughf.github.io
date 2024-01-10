@@ -136,7 +136,7 @@ As we navigate the labyrinth of Linux installation, we&amp;rsquo;ll transform a 
   <h1 class="post-title">
     <a href="https://sergiu.dev/posts/archlinux/">Unlocking the Power of Linux: A Complete Guide to Installing Arch with Full Disk Encryption</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2024-01-09</time><span class="post-reading-time">7 min read (1413 words)</span></div>
+  <div class="post-meta"><time class="post-date">2024-01-09</time><span class="post-reading-time">7 min read (1444 words)</span></div>
 
   
   
@@ -186,7 +186,7 @@ flexibility.</p>
 <p>Alright, internet warriors, let&rsquo;s get you connected!</p>
 <p>If you&rsquo;re plugged in via ethernet, let&rsquo;s do a quick check to see if your machine is already chatting with the internet.</p>
 <p>Pop open your terminal and type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ip addr show <span style="color:#75715e"># You should see an ip address assigned to the ethernet adapter.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ip addr show <span style="color:#75715e"># You should see an RFC1918 compliant IP address assigned to the ethernet adapter.</span>
 </span></span><span style="display:flex;"><span>ping google.com <span style="color:#75715e"># Do a quick reality check to confirm your connection.</span>
 </span></span></code></pre></div><p>If you&rsquo;re a Wi-Fi wizard, brace yourself for a mini-adventure.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>iwctl <span style="color:#75715e"># Summoning the Internet Wireless Daemon (IWD) within your shell.</span>
@@ -203,8 +203,10 @@ flexibility.</p>
 </span></span></code></pre></div><p>With our internet powers activated, let&rsquo;s give the Arch Package Repository index a fresh update.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -Syyy
 </span></span></code></pre></div><p>Feeling a bit sluggish? Maybe your digital carrier pigeons are flying to a far-off land.</p>
-<p>Edit <code>/etc/pacman.d/mirrorlist</code> and put your country at the top.</p>
-<p>This is like telling those pigeons to make a pit stop closer to home.</p>
+<p>Install Reflector and retrieve the latest mirror list:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pacman -S reflector rsync curl
+</span></span><span style="display:flex;"><span>reflector --latest <span style="color:#ae81ff">20</span> --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+</span></span></code></pre></div><p>This is like telling those pigeons to make a pit stop closer to home.</p>
 <p>Faster updates, happier you!</p>
 <hr>
 <h2 id="set-up-the-disk">Set up the Disk<a href="#set-up-the-disk" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -229,7 +231,7 @@ flexibility.</p>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Now, let&#39;s give these partitions some personality by formatting them.</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>mkfs.fat -F32 /dev/nvme0n1p1 <span style="color:#75715e"># Set up a FAT32 partition.</span>
-</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/nvme0n1p2 <span style="color:#75715e"># Format the second partition as ext4.</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 /dev/nvme0n1p2 <span style="color:#75715e"># Format the second partition as EXT4. Alternatively you could also consider BTRFS, ZFS or XFS file systems depending on your use case.</span>
 </span></span></code></pre></div><h3 id="encrypt-the-disk">Encrypt the Disk<a href="#encrypt-the-disk" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Now, let&rsquo;s start the encryption process.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cryptsetup luksFormat /dev/nvme0n1p3 
